@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartona-Login</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="icon" href="css/imgs/logo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <header class="absolute top-0 left-0 w-full bg-black/70 backdrop-blur-lg z-20 p-0  min-h-[80px]">
+
+    <!-- Top bar: Logo & Burger -->
+    <div class="container mx-auto flex items-center justify-between p-4 mt-4 md:mt-1">
+      <!-- Logo -->
+      <a href="index.html"><div class="text-white text-xl font-bold">
+        <img class="h-12 w-full" src="css/imgs/logo.png" alt="">
+      </div></a>
+      <!-- Desktop Buttons -->
+      <div class="hidden md:flex gap-4">
+        <a href="login.html" class="text-white bg-white/20 hover:hover:bg-white/30 px-3 py-2 rounded login">Login</a>
+        <a href="register.html" class="text-white bg-blue-600 hover:bg-blue-700 px-3 py-2 rounded">Sign Up</a>
+      </div>
+      <!-- Mobile Burger -->
+      <button id="menu-btn" class="md:hidden block">
+        <span class="block w-6 h-0.5 bg-white mb-1 transition-all duration-300 origin-center"></span>
+        <span class="block w-6 h-0.5 bg-white mb-1 transition-all duration-300 origin-center"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu (shows under the bar) -->
+    <div class="md:hidden w-full overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0 translate-y-[-30px] pb-4" id="mobile-menu">
+      <div class="gap-4 mt-6 flex transition-all duration-300 flex-col items-center">
+        <a href="login.html" class="text-white bg-white/20 hover:bg-white/30 px-3 w-52 py-2 rounded text-center mx-auto login">Login</a>
+        <a href="register.html" class="text-white bg-blue-600 w-52 hover:bg-blue-700 px-3 py-2 rounded text-center mx-auto">Sign Up</a>
+      </div>
+    </div>
+
+  </header>
+
+<!-- ////////////////////////////////////////////////////////////////////////// -->
+
+  <!-- ✅ الفيديو الخلفي -->
+   <div>
+  <img src="css/imgs/pexels-pixabay-461940.jpg" alt="Background Image" class="fixed bg-bottom top-0 left-0 w-full h-full object-cover z-10" />
+
+  <!-- ✅ المحتوى فوق الفيديو -->
+        <div class="relative z-10 flex flex-col justify-center items-center text-center text-white h-screen bg-black/50 px-4">     
+                <h2 class="text-4xl md:text-6xl font-bold mb-8">Login Page</h2>      
+             <form class="w-96 border-2 border-white/20 bg-white/10 p-6 rounded-lg login">
+                <input id="username" type="text" class="px-4 py-2 rounded block mt-4 w-full bg-transparent border-2 border-zinc-600 focus:border-zinc-600 focus:ring-2 focus:ring-zinc-400 focus:outline-none transition" placeholder="Enter your full name">
+                
+                <div class="relative w-full">
+                  <input id="password" type="password" class="px-4 py-2 rounded mt-4 block w-full bg-transparent border-2 border-zinc-600 focus:border-zinc-600 focus:ring-2 focus:ring-zinc-400 focus:outline-none transition pr-10" placeholder="Enter your password">
+                  <i id="togglePassword" class="fa-solid fa-eye-slash absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 cursor-pointer"></i>
+                </div>
+                
+                <button id="login-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded mt-4">Login</button>
+                <div class="mt-4">
+                    <a href="register.html" class="text-blue-400 hover:underline">Don't have an account? Sign up</a>
+                </div>
+            </form>
+        </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

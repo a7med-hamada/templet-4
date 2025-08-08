@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smartona-Shop</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/all.css">
+  <link rel="icon" href="css/imgs/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="m-0 p-0 font-sans" id="body">
+<!-- Header -->
+  <header class="relative top-0 left-0 w-full bg-neutral-900 backdrop-blur-lg z-20 p-0 min-h-[80px]">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 pt-6 md:mt-0 gap-4">
+      <div class="flex items-center justify-between w-full md:w-auto">
+        <a href="shop.html"><div class="text-white text-xl font-bold">
+        <img class="h-12 w-full" src="css/imgs/logo.png" alt="logo">
+        </div></a>
+        <button id="menu-btn" class="md:hidden block">
+          <span class="block w-6 h-0.5 bg-white mb-1 transition-all duration-300 origin-center"></span>
+          <span class="block w-6 h-0.5 bg-white mb-1 transition-all duration-300 origin-center"></span>
+          <span class="block w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+        </button>
+      </div>
+      <div class="relative w-full md:w-1/3">
+        <input type="text" id="search-input" placeholder="Search products..." class="w-full bg-gray-800 text-white rounded-lg py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+      </div>
+      <ul class="text-white gap-6 hidden md:flex">
+        <li><a href="#products-laptop" class="hover:underline">Laptops</a></li>
+        <li><a href="#products-mobile" class="hover:underline">Mobile Phones</a></li>
+        <li><a href="#products-Headphone" class="hover:underline">Headphones</a></li>
+        <li><a href="#products-watches" class="hover:underline">Watches</a></li>
+      </ul>
+      <div class="flex gap-7 items-center">
+
+        <div class="relative">
+          <i id="cart" class="fa-solid fa-cart-shopping text-white text-2xl hover:scale-110 transition-all duration-300 cursor-pointer"></i>
+          <span id="cart-count" class="text-white text-sm bg-red-500 rounded-full px-2 absolute -top-2 -right-3">0</span>
+        </div>
+
+        <div class="text-white hidden md:block  border-2 border-white w-fit mx-auto py-2 px-4 rounded-lg cursor-pointer"><i class="fa-solid fa-user mr-1"></i> <span id="username-desktop"></span></div>
+
+        <a href="favorite.html" class="btn-favorite text-white hidden md:block  border-2 border-white w-fit mx-auto py-2 px-4 rounded-lg cursor-pointer">Favorite <i class="fa-solid fa-heart"></i></a>
+
+     <div id="logout-btn-desktop"  aria-label="User Logout Button" tabindex="0" role="button" class="user-profile hidden md:block">
+     <!-- From Uiverse.io by reglobby --> 
+     <div aria-label="User Login Button" tabindex="0" role="button" class="user-profile">
+       <div class="user-profile-inner">
+         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+           <g data-name="Layer 2" id="Layer_2">
+             <path d="m15.626 11.769a6 6 0 1 0 -7.252 0 9.008 9.008 0 0 0 -5.374 8.231 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 9.008 9.008 0 0 0 -5.374-8.231zm-7.626-4.769a4 4 0 1 1 4 4 4 4 0 0 1 -4-4zm10 14h-12a1 1 0 0 1 -1-1 7 7 0 0 1 14 0 1 1 0 0 1 -1 1z"></path>
+           </g>
+         </svg>
+         <p>Log out</p>
+       </div>
+     </div>
+     </div>
+
+    </div>
+    <div class="md:hidden w-full overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0 translate-y-[-30px] pb-4" id="mobile-menu">
+      <div class="text-white text-center rounded-lg border-2 border-white w-fit mx-auto py-2 mb-5 px-4 mt-4 md:mt-0 cursor-pointer"> <i class="fa-solid fa-user"></i> <span id="username-mobile"></span></div>
+      <ul class="flex flex-col items-center justify-center h-full">
+        <li><a href="#products-laptop" class="hover:underline text-white">Laptops</a></li>
+        <li><a href="#products-mobile" class="hover:underline text-white">Mobile Phones</a></li>
+        <li><a href="#products-Headphone" class="hover:underline text-white">Headphones</a></li>
+        <li><a href="#products-watches" class="hover:underline text-white">Watches</a></li>
+      </ul>
+      <div class="flex flex-col items-center justify-center h-full my-6">
+        <a href="favorite.html" class="btn-favorite text-white border-2 border-white w-fit mx-auto py-2 px-4 rounded-lg cursor-pointer">Favorite <i class="fa-solid fa-heart"></i></a>
+      </div>
+
+      <div id="logout-btn-mobile" aria-label="User Logout Button" tabindex="0" role="button" class="user-profile mx-auto">
+        <!-- From Uiverse.io by reglobby -->
+        <div class="user-profile-inner">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <g data-name="Layer 2" id="Layer_2">
+              <path d="m15.626 11.769a6 6 0 1 0 -7.252 0 9.008 9.008 0 0 0 -5.374 8.231 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 9.008 9.008 0 0 0 -5.374-8.231zm-7.626-4.769a4 4 0 1 1 4 4 4 4 0 0 1 -4-4zm10 14h-12a1 1 0 0 1 -1-1 7 7 0 0 1 14 0 1 1 0 0 1 -1 1z"></path>
+            </g>
+          </svg>
+          <p>Log In</p>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </header>
+
+
+
+      <div id="no-results" class="text-center text-white text-2xl h-[90vh] hidden place-content-center">No products found</div>
+  <div class="container mx-auto my-10 px-4" id="products">
+    <div id="products-laptop" class="items">
+      <h2 class="text-4xl font-bold mb-10 text-center text-white">Laptops</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items">
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/laptop-1.png" alt="Product 1" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Lenovo ThinkPad</h3>
+          <p class="text-gray-600 mt-1">Lenovo ThinkPad T480 Core i5-8250U 16Gb RAM 512GB SSD FHD Windows 11 Laptop</p>
+          <p class="mt-1 text-gray-900">$999.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+          </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/laptop-2.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">HP EliteBook</h3>
+          <p class="text-gray-600 mt-1">HP 820G3 Elitebook 12 Inch Screen Laptop 6th Gen Intel Core i5 - 6300U /4 GB/120 G...</p>
+          <p class="mt-1 text-gray-900">$799.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+          </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/laptop-3.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">ASUS Zenbook</h3>
+          <p class="text-gray-600 mt-1">ASUS Zenbook S 16 UM5606KA-RK106W 16,0" Ryzen AI 7 350 24GB LPDDRX5 RAM 1TB SSD</p>
+          <p class="mt-1 text-gray-900">$1299.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+          </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/laptop-4.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">MacBook Air</h3>
+          <p class="text-gray-600 mt-1">MacBook Air 2022 Mockups</p>
+          <p class="mt-1 text-gray-900">$1099.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+          </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/laptop-5.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Microsoft Surface</h3>
+          <p class="text-gray-600 mt-1">Microsoft Surface Laptop 6 13.5" Touchscreen, Intel Core Ultra 7-165H 1.4GHz, 16GB RAM, 256GB SSD, Windows 11 Pro, Black</p>
+          <p class="mt-1 text-gray-900">$1199.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+          </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/laptop-6.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Acer Aspire</h3>
+          <p class="text-gray-600 mt-1">Acer Aspire 3 NX.AT0EK.009 15" Laptop i3 8GB RAM 256GB SSD A315-58-364W Windows</p>
+          <p class="mt-1 text-gray-900">$599.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-5 md:mb-0 mt-28 items" id="products-mobile">
+      <h2 class="text-4xl font-bold mb-10 text-center text-white">Mobile Phones</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items">
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/phone-1.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Samsung Galaxy S24 Ultra</h3>
+          <p class="text-gray-600 mt-1">Samsung Galaxy S24 Ultra 5G Qualcomm Snapdragon 12GB RAM 512GB Storage 6.8 inch AMOLED Smartphone</p>
+          <p class="mt-1 text-gray-900">$1299.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+          </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/phone-2.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Apple iPhone 15 Pro Max</h3>
+          <p class="text-gray-600 mt-1">Apple iPhone 15 Pro Max (256 GB)</p>
+          <p class="mt-1 text-gray-900">$1199.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+          </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/phone-3.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Redmi Note 13 Pro</h3>
+          <p class="text-gray-600 mt-1">Redmi Note 13 Pro to Launch Globally with LTE and 5G Variants</p>
+          <p class="mt-1 text-gray-900">$399.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+            <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+          </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/phone-4.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Google Pixel 9 Pro</h3>
+          <p class="text-gray-600 mt-1">Google Pixel 9 Pro - 128 GB, Triple Camera, and 24-Hour Battery</p>
+          <p class="mt-1 text-gray-900">$999.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+            </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/phone-5.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Infinix Smart 9</h3>
+          <p class="text-gray-600 mt-1">Infinix Smart 9 Smartphone 128GB 4GB RAM, 13MP Camera, MediaTek Helio G81 Processor</p>
+          <p class="mt-1 text-gray-900">$199.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+            </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/phone-6.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Tecno Pova 6 Neo</h3>
+          <p class="text-gray-600 mt-1">Tecno Pova 6 Neo Price in Pakistan & Specs</p>
+          <p class="mt-1 text-gray-900">$299.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="mb-32 md:mb-0 mt-28 items"  id="products-Headphone">
+      <h2 class="text-4xl font-bold mb-10 text-center text-white">Headphones</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items">
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/Headphone-5.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">SteelSeries Arctis Nova Pro</h3>
+          <p class="text-gray-600 mt-1">Arctis Nova Pro Wireless for PC & PlayStation</p>
+          <p class="mt-1 text-gray-900">$349.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+            </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/Headphone-2.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Beats Solo 4</h3>
+          <p class="text-gray-600 mt-1">Beats Solo 4 - Wireless Bluetooth On-Ear Headphones, Up to 50 Hours of Battery Life</p>
+          <p class="mt-1 text-gray-900">$199.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+            </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/Headphone-3.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Razer BlackShark V2</h3>
+          <p class="text-gray-600 mt-1">Razer BlackShark V2 HyperSpeed, Gaming Headset</p>
+          <p class="mt-1 text-gray-900">$129.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+            </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/Headphone-4.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Apple AirPods Max</h3>
+          <p class="text-gray-600 mt-1">Apple AirPods Max Wireless Over-Ear Headphones with AppleCare</p>
+          <p class="mt-1 text-gray-900">$549.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+            </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/Headphone-1.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Sony WH-1000XM6</h3>
+          <p class="text-gray-600 mt-1">Sony WH-1000XM6: Foldable, with better sound, ANC, and clear calls</p>
+          <p class="mt-1 text-gray-900">$399.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+            </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/Headphone-6.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Audio-Technica ATH-M50x</h3>
+          <p class="text-gray-600 mt-1">Audio-Technica ATH-M50x Professional Monitor Headphones with 9.8' Interchangeable Coiled and Straight Cables, White</p>
+          <p class="mt-1 text-gray-900">$149.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-32 md:mb-0 mt-28 items" id="products-watches">
+      <h2 class="text-4xl font-bold mb-10 text-center text-white">Watches</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items">
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/watches-1.png" alt="Product 1" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Apple Watch Series 9</h3>
+          <p class="text-gray-600 mt-1">Apple Watch Series 9 41mm GPS Smartwatch with Always-On Retina Display, Heart Rate Monitoring, and Fitness Tracking</p>
+          <p class="mt-1 text-gray-900">$399.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+            </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/watches-2.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Samsung Galaxy Watch 6 Classic</h3>
+          <p class="text-gray-600 mt-1">Samsung Galaxy Watch 6 Classic 43mm Smartwatch with Rotating Bezel, Heart Rate Monitoring, and Sleep Tracking</p>
+          <p class="mt-1 text-gray-900">$349.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+            </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/watches-3.png" alt="Product 3" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Rolex Submariner</h3>
+          <p class="text-gray-600 mt-1">Rolex Submariner 41mm Automatic Watch with Date Function and Ceramic Bezel</p>
+          <p class="mt-1 text-gray-900">$7999.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+            </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/watches-4.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Garmin Forerunner 970</h3>
+          <p class="text-gray-600 mt-1">Garmin Forerunner 970 with Heart Rate Monitor and GPS, Titanium Carbon Gray 47mm</p>
+          <p class="mt-1 text-gray-900">$499.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+            </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/watches-5.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">TAG Heuer Carrera Series</h3>
+          <p class="text-gray-600 mt-1">TAG Heuer Carrera Series Swiss Brand New Green Men's Chronograph</p>
+          <p class="mt-1 text-gray-900">$2999.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+            </div>
+        </div>
+
+        <div class="bg-zinc-400 rounded-lg shadow-md p-4 opacity-0 scale-75 translate-y-10 transition-all duration-700 reveal relative">
+          <img src="css/imgs/watches-6.png" alt="Product 2" class="mx-auto w-fit object-cover rounded-md h-64">
+          <h3 class="text-lg font-semibold mt-2">Seiko 5 Sports Automatic GMT</h3>
+          <p class="text-gray-600 mt-1">Seiko 5 Sports Automatic GMT Watch with Grey Dial and Stainless Steel Bracelet</p>
+          <p class="mt-1 text-gray-900">$399.99</p>
+          <button class="add-to-cart-btn bg-blue-600 text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+          <div class="absolute top-2 right-2">
+            <button class="wishlist-btn text-white px-2 py-1 rounded"><i class="fa-regular fa-heart text-2xl"></i></button>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<footer class="bg-neutral-900 w-full min-h-[300px] mt-20">
+  <div class="container mx-auto">
+    <div class="block text-center md:text-start md:flex justify-between h-full text-white p-10 content-footer">
+      <div class="w-full md:w-[30%] h-[100%]">
+        <a href="shop.html"><div class="text-white text-4xl font-bold block">
+          <img class="h-20 w-30 mx-auto md:mx-0" src="css/imgs/logo.png" alt="">
+        </div></a>
+        <br>
+        <h2 class="text-2xl font-bold block">Empowering Your Smartona</h2>
+        <p class="my-3"><span class="font-bold">Phone</span>: +20 123 456 7890</p>
+        <p class="my-3"><span class="font-bold">Address</span>: 123 Tech Street, Cairo, Egypt</p>
+        <p><span class="font-bold">Email</span>: support@techtrend.com</p>
+      </div>
+      <div class="w-full md:w-[30%] h-[100%] mt-8">
+        <h1 class="text-3xl font-bold">Quick Links</h1>
+        <p class="my-4"><a href="#products" class="hover:text-blue-400 transition">Shop Now</a></p>
+        <p class="mb-4"><a href="#about" class="hover:text-blue-400 transition">About Us</a></p>
+        <p><a href="#contact" class="hover:text-blue-400 transition">Contact Support</a></p>
+      </div>
+      <div class="w-full md:w-[30%] h-[100%] mt-8">
+        <h1 class="text-3xl font-bold">Discover More</h1>
+        <p class="my-4"><a href="#products-laptop" class="hover:text-blue-400 transition">Laptops</a></p>
+        <p class="mb-4"><a href="#products-mobile" class="hover:text-blue-400 transition">Smartphones</a></p>
+        <p><a href="#products-watches" class="hover:text-blue-400 transition">Smartwatches</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="Copyright bg-neutral-800 text-white text-center p-4">All rights reserved &copy; TechTrend 2025</div>
+</footer>
+
+  <button id="scrollToTopBtn" class="fixed bottom-[-50px] rounded-lg md:right-8 right-3 bg-blue-500 text-white p-3 h-24 w-16 shadow-lg hover:bg-blue-700 hover:scale-110 hover:bottom-[-5px] transition-all duration-300 z-50 hidden">
+    <i class="fa-solid fa-arrow-up absolute top-5 right-[43%]"></i>
+  </button>
+
+  <script src="js/shop.js"></script>
+</body>
+</html>

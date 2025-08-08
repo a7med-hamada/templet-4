@@ -1,0 +1,128 @@
+body{
+  background-image: url(imgs/WhatsApp\ Image\ 2025-01-06\ at\ 16.12.44_87df5a1a.jpg);
+  background-size: cover;
+  background-position: center;  
+  background-attachment: fixed;
+  width: 100%;
+  overflow-x: hidden; 
+}
+
+#wishlist-count{
+  display: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+#menu-btn.open span:nth-child(1) {
+   transform: rotate(45deg) translateY(8px);
+}
+ #menu-btn.open span:nth-child(2) {
+   opacity: 0;
+}
+ #menu-btn.open span:nth-child(3) {
+   transform: rotate(-45deg) translateY(-8px);
+}
+
+
+ 
+.sign-up{
+     box-shadow: 0px 0px 15px 5px rgb(4 0 233);
+}
+ 
+.login{
+     box-shadow: 0px 0px 15px 5px rgb(71, 71, 71);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* From Uiverse.io by reglobby */ 
+.user-profile {
+  width: 131px;
+  height: 51px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background: linear-gradient(
+    to bottom right,
+    #2e8eff 0%,
+    rgba(46, 142, 255, 0) 30%
+  );
+  background-color: rgba(46, 142, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-profile:hover,
+.user-profile:focus {
+  background-color: rgba(46, 142, 255, 0.7);
+  box-shadow: 0 0 10px rgba(46, 142, 255, 0.5);
+  outline: none;
+}
+
+.user-profile-inner {
+  width: 127px;
+  height: 47px;
+  border-radius: 13px;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.user-profile-inner svg {
+  width: 27px;
+  height: 27px;
+  fill: #fff;
+}
+
+
+
+#products {
+  transition: all 0.3s ease;
+}
+
+
+
+
+/* Ensure the input has enough padding for the icon */
+#password {
+    padding-right: 2.5rem; /* Space for the icon */
+}
+
+/* Style the toggle icon */
+#togglePassword {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#togglePassword:hover {
+    color: #ffffff; /* Change color on hover */
+}
+
+
+
+
+
+/* Existing styles from css/style.css (assuming it exists) */
+.favorite-btn:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+.fa-heart.text-red-500 {
+  color: #ef4444;
+}

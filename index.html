@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smartona</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/all.css">
+  <link rel="icon" href="css/imgs/logo.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="m-0 p-0 font-sans" id="body">
+
+  <!-- ✅ الهيدر -->
+  <header class="absolute top-0 left-0 w-full bg-black/70 backdrop-blur-lg z-20 p-0  min-h-[80px]">
+
+    <!-- Top bar: Logo & Burger -->
+    <div class="container mx-auto flex items-center justify-between p-4 mt-4 md:mt-1">
+      <!-- Logo -->
+      <a href="index.html"><div class="text-white text-xl font-bold">
+        <img class="h-12 w-full" src="css/imgs/logo.png" alt="">
+      </div></a>
+      <!-- Desktop Menu (hidden on mobile) -->
+      <ul class="text-white gap-6 hidden md:flex">
+        <li><a href="#home" class="hover:underline">the home</a></li>
+        <li><a href="#services" class="hover:underline">the services</a></li>
+        <li><a href="#about" class="hover:underline">the about</a></li>
+        <li><a href="#contact" class="hover:underline">the contact</a></li>
+      </ul>
+      <!-- Desktop Buttons -->
+      <div class="hidden md:flex gap-4">
+        <a href="login.html" class="text-white bg-white/20 hover:hover:bg-white/30 px-3 py-2 rounded">Login</a>
+        <a href="register.html" class="text-white bg-blue-600 hover:bg-blue-700 px-3 py-2 rounded">Sign Up</a>
+      </div>
+      <!-- Mobile Burger -->
+      <button id="menu-btn" class="md:hidden block">
+        <span class="block w-6 h-0.5 bg-white mb-1 transition-all duration-300 origin-center"></span>
+        <span class="block w-6 h-0.5 bg-white mb-1 transition-all duration-300 origin-center"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu (shows under the bar) -->
+    <div class="md:hidden w-full overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0 translate-y-[-30px] pb-4" id="mobile-menu">
+      <ul class="flex flex-col items-center justify-center h-full">
+        <li><a href="#home" class="text-white py-2 hover:underline">the home</a></li>
+        <li><a href="#services" class="text-white py-2 hover:underline">the services</a></li>
+        <li><a href="#about" class="text-white py-2 hover:underline">the about</a></li>
+        <li><a href="#contact" class="text-white py-2 hover:underline">the contact</a></li>
+      </ul>
+      <div class="gap-4 mt-6 flex transition-all duration-300 flex-col items-center">
+        <a href="login.html" class="text-white bg-white/20 hover:bg-white/30 px-3 w-52 py-2 rounded text-center mx-auto">Login</a>
+        <a href="register.html" class="text-white bg-blue-600 w-52 hover:bg-blue-700 px-3 py-2 rounded text-center mx-auto">Sign Up</a>
+      </div>
+    </div>
+
+  </header>
+
+<!-- ////////////////////////////////////////////////////////////////////////// -->
+
+  <!-- ✅ الفيديو الخلفي -->
+   <div>
+  <video autoplay loop muted playsinline class="fixed top-0 left-0 w-full h-full object-cover z-10">
+    <source src="css/vid/14091029_3834_2160_60fps.mp4" type="video/mp4" />
+    المتصفح لا يدعم تشغيل الفيديو.
+  </video>
+
+  <!-- ✅ المحتوى فوق الفيديو -->
+  <div class="relative z-10 flex flex-col justify-center items-center text-center text-white h-screen bg-black/50 px-4">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">welcome in our website</h1>
+    <p class="text-xl max-w-xl">we offer you the best services in a professional atmosphere and a stunning interface with an eye-catching animated background!</p>
+  </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

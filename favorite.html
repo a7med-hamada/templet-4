@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smartona-Favorite</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/all.css">
+  <link rel="icon" href="css/imgs/logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="m-0 p-0 font-sans bg-neutral-900">
+  <!-- Header -->
+  <header class="relative top-0 left-0 w-full bg-neutral-900 backdrop-blur-lg z-20 p-0 min-h-[80px]">
+    <div class="container mx-auto flex items-center justify-between px-4 pt-6">
+      <h1 class="text-white text-2xl font-bold">Favorite</h1>
+      <div class="flex gap-10 items-center">
+        <div class="relative">
+          <i id="cart" class="fa-solid fa-cart-shopping text-white text-2xl hover:scale-110 transition-all duration-300 cursor-pointer"></i>
+          <span id="cart-count" class="text-white text-sm bg-red-500 rounded-full px-2 absolute -top-2 -right-3">0</span>
+        </div>
+        <a href="shop.html" class="text-white border-2 border-white rounded px-4 py-2 bg-blue-500 hover:bg-blue-600 transition-all duration-300">Back to Shop</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container mx-auto my-10 px-4">
+    <div id="wishlist-items" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    <div id="no-favorites" class="text-center text-white text-2xl h-[90vh] hidden place-content-center">No favorite items</div>
+  </div>
+
+  <script src="js/favorite.js"></script>
+</body>
+</html>
